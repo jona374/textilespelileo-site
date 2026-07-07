@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Ropa de Trabajo y Uniformes | Textiles Pelileo</title>
+    <meta name="description" content="Catálogo de ropa de trabajo industrial: pantalones Gregori, pantalón stretch, camisas Mistral, camisetas, buzos, uniformes corporativos y bordados. Precios de fábrica y envíos a todo Ecuador.">
+    <meta name="keywords" content="catálogo ropa de trabajo Ecuador, uniformes industriales Ecuador, pantalones Gregori, camisas Mistral, ropa industrial Pelileo">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://textilespelileo.com/productos.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Catálogo de Productos | Textiles Pelileo">
+    <meta property="og:description" content="Pantalones, camisas, camisetas, buzos, uniformes y bordados. Precios de fábrica, envíos a todo Ecuador.">
+    <meta property="og:image" content="https://textilespelileo.com/img/hero-portada.webp">
+    <meta property="og:url" content="https://textilespelileo.com/productos.html">
+    <meta name="theme-color" content="#0E1B2A">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=1782105560">
+    <script src="js/pixels.js?v=1782105560"></script>
+</head>
+
+<body data-wa-msg="Hola, vi su catálogo y me interesa cotizar. ¿Me ayudan con disponibilidad, tallas y precios?">
+
+    <section class="phero section--tight">
+        <div class="container text-center">
+            <nav class="breadcrumb mb-2" style="text-align:left"><a href="index.html">Inicio</a> / Productos</nav>
+            <span class="kicker" style="justify-content:center">Catálogo completo</span>
+            <h1>Ropa de trabajo y uniformes industriales</h1>
+            <p class="phero__lead" style="margin:0 auto;max-width:640px">Prendas resistentes fabricadas directo del taller en Pelileo. Telas Gregori y Mistral, tallas completas y precios de fábrica para empresas y mayoristas.</p>
+        </div>
+    </section>
+
+    <section class="section bg-cream">
+        <div class="container">
+            <div class="filters" id="filters">
+                <button class="tab-btn active" data-filter="all">Todos</button>
+                <button class="tab-btn" data-filter="pantalones">Pantalones</button>
+                <button class="tab-btn" data-filter="camisas">Camisas</button>
+                <button class="tab-btn" data-filter="chalecos">Chalecos</button>
+                <button class="tab-btn" data-filter="camisetas">Camisetas y Buzos</button>
+                <button class="tab-btn" data-filter="servicios">Uniformes y Servicios</button>
+            </div>
+            <div class="grid grid--3" id="product-grid"></div>
+        </div>
+    </section>
+
+    <!-- PERSONALIZACIÓN -->
+    <section class="section bg-navy">
+        <div class="container">
+            <div class="section-head reveal"><span class="kicker">Personalización</span><h2>Haz que tu ropa represente tu marca</h2><p>Suma bordado de logotipo, doble bolsillo o cinta reflectiva a tu pedido.</p></div>
+            <div class="grid grid--3">
+                <div class="feature reveal"><div class="feature__ico"><i class="fas fa-pen-nib"></i></div><h3>Bordado de logo</h3><p>Desde $2 por prenda. Logos, nombres y banderas con acabado profesional.</p></div>
+                <div class="feature reveal d1"><div class="feature__ico"><i class="fas fa-vest"></i></div><h3>Doble bolsillo</h3><p>+$2 por prenda en camisas, para mayor funcionalidad.</p></div>
+                <div class="feature reveal d2"><div class="feature__ico"><i class="fas fa-bolt"></i></div><h3>Cinta reflectiva</h3><p>+$1 en camisetas y buzos, para seguridad y visibilidad.</p></div>
+            </div>
+            <div class="text-center mt-3 reveal"><a class="btn btn--wa btn--lg" href="bordados-corporativos.html">Ver bordados corporativos</a></div>
+        </div>
+    </section>
+
+    <section class="section bg-white">
+        <div class="container">
+            <div class="cta-block reveal">
+                <span class="kicker" style="justify-content:center">Cotización inmediata</span>
+                <h2>Escríbenos al WhatsApp +593 98 663 4114</h2>
+                <p>Te ayudamos con disponibilidad, tallas y cotización para tu empresa o pedido personal.</p>
+                <a class="btn btn--wa btn--lg" href="#" data-wa target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Iniciar conversación</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/partials.js?v=1782105560"></script>
+    <script src="js/products.js?v=1782105560"></script>
+    <script src="js/main.js?v=1782105560"></script>
+    <script>
+        TP.renderProducts("#product-grid", { cat: "all" });
+        TP.initFilters();
+        document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = TP.wa(document.body.getAttribute("data-wa-msg")); });
+    </script>
+</body>
+
+</html>
