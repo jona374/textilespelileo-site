@@ -70,7 +70,7 @@ TP.products = [
         img: "img/galeria/cjersey-1.webp",
         blurb: "Camiseta básica de cuello redondo en tela jersey: cómoda, ligera y de colores duraderos. Ideal para uniformar a tu equipo o bordar tu logo.",
         meta: "Tallas 36–42 · varios colores",
-        price: "Desde $6", priceNote: "por prenda · +$1 reflectivo",
+        price: "Desde $7", priceNote: "por prenda · +$1 reflectivo",
         msg: "Hola, me interesa la Camiseta de Tela Jersey. ¿Me ayudan con colores, tallas y precio?"
     },
     {
@@ -92,7 +92,7 @@ TP.products = [
         img: "img/galeria/cpique-1.webp",
         blurb: "Camiseta polo manga corta en tela piqué premium, cuello polo clásico y costuras reforzadas. Estilo formal y duradero. Ideal para personalizar.",
         meta: "Tallas S · M · L · XL",
-        price: "Desde $8", priceNote: "por prenda · +$1 reflectivo",
+        price: "Desde $9", priceNote: "por prenda · +$1 reflectivo",
         msg: "Hola, me interesa la Camiseta Polo Piqué. ¿Me ayudan con tallas y precio?"
     },
     {
