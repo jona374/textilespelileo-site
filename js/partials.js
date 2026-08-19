@@ -29,6 +29,11 @@ TP.config = {
     defaultMsg: "Hola, me interesa la ropa de trabajo de Textiles Pelileo. ¿Me ayudan con disponibilidad, tallas y cotización?"
 };
 
+/* Prefijo de rutas: los artículos viven en /blog/ y necesitan subir un nivel
+   para alcanzar css/, js/, img/ y las páginas de la raíz. */
+TP.inBlog = /\/blog\//.test(location.pathname);
+TP.base = TP.inBlog ? "../" : "";
+
 /* Genera un enlace de WhatsApp con mensaje codificado */
 TP.wa = function (msg) {
     var text = encodeURIComponent(msg || TP.config.defaultMsg);
@@ -42,12 +47,16 @@ TP.nav = [
     { label: "Uniformes", href: "uniformes-industriales.html" },
     { label: "Bordados", href: "bordados-corporativos.html" },
     { label: "Nosotros", href: "nosotros.html" },
+    { label: "Blog", href: "blog/index.html" },
     { label: "Contacto", href: "contacto.html" }
 ];
 
 (function () {
     var c = TP.config;
-    var current = (location.pathname.split("/").pop() || "index.html") || "index.html";
+    var base = TP.base;
+    var current = TP.inBlog
+        ? "blog/index.html"
+        : ((location.pathname.split("/").pop() || "index.html") || "index.html");
     var pageMsg = (document.body.getAttribute("data-wa-msg")) || c.defaultMsg;
 
     /* ---------- PRELOADER (oculto al cargar imágenes/fuentes) ---------- */
@@ -57,7 +66,7 @@ TP.nav = [
     pre.innerHTML =
         '<div style="text-align:center">' +
             (c.logo
-                ? '<img class="preloader__logo" src="' + c.logo + '" alt="">'
+                ? '<img class="preloader__logo" src="' + base + c.logo + '" alt="">'
                 : '<div style="font-family:var(--font-head);font-weight:800;font-size:1.6rem;color:var(--navy-900);letter-spacing:.02em">TEXTILES PELILEO</div>') +
             '<div class="preloader__bar"></div>' +
         '</div>';
@@ -81,8 +90,8 @@ TP.nav = [
     ];
     function buildMega() {
         var grid = megaItems.map(function (p) {
-            return '<a class="mega__item" href="' + p.href + '">' +
-                '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
+            return '<a class="mega__item" href="' + base + p.href + '">' +
+                '<img src="' + base + p.img + '" alt="' + p.name + '" loading="lazy">' +
                 '<span class="nm">' + p.name + '</span>' +
                 '<span class="pr">' + p.price + '</span>' +
             '</a>';
@@ -90,7 +99,7 @@ TP.nav = [
         return '<div class="mega" role="menu">' +
             '<div class="mega__grid">' + grid + '</div>' +
             '<div class="mega__foot">' +
-                '<a class="lk" href="productos.html">→ Ver todo el catálogo</a>' +
+                '<a class="lk" href="' + base + 'productos.html">→ Ver todo el catálogo</a>' +
                 '<a class="btn btn--wa" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotizar</a>' +
             '</div>' +
         '</div>';
@@ -99,19 +108,19 @@ TP.nav = [
     var navLinks = TP.nav.map(function (n) {
         var active = (n.href === current) ? ' aria-current="page"' : '';
         if (n.href === "productos.html") {
-            return '<span class="has-mega"><a href="' + n.href + '"' + active + '>' + n.label + ' ▾</a>' + buildMega() + '</span>';
+            return '<span class="has-mega"><a href="' + base + n.href + '"' + active + '>' + n.label + ' ▾</a>' + buildMega() + '</span>';
         }
-        return '<a href="' + n.href + '"' + active + '>' + n.label + '</a>';
+        return '<a href="' + base + n.href + '"' + active + '>' + n.label + '</a>';
     }).join("");
 
     /* Marca: logo real si está configurado; si no, emblema heritage + wordmark */
     function brandHTML(light) {
         var src = light ? c.logoLight : c.logo;
         if (src) {
-            return '<a class="brand" href="index.html" aria-label="Textiles Pelileo - Inicio">' +
-                '<img class="brand__logo" src="' + src + '" alt="Textiles Pelileo" width="240" height="118"></a>';
+            return '<a class="brand" href="' + base + 'index.html" aria-label="Textiles Pelileo - Inicio">' +
+                '<img class="brand__logo" src="' + base + src + '" alt="Textiles Pelileo" width="240" height="118"></a>';
         }
-        return '<a class="brand" href="index.html" aria-label="Textiles Pelileo - Inicio">' +
+        return '<a class="brand" href="' + base + 'index.html" aria-label="Textiles Pelileo - Inicio">' +
             '<span class="brand__emblem"><i class="fas fa-horse-head"></i></span>' +
             '<span><span class="brand__name">TEXTILES PELILEO</span><br>' +
             '<span class="brand__tag">Desde 2010 · Duradero por Naturaleza</span></span></a>';
@@ -150,7 +159,7 @@ TP.nav = [
     mm.className = "mobile-menu";
     mm.id = "mobileMenu";
     mm.innerHTML =
-        TP.nav.map(function (n) { return '<a href="' + n.href + '">' + n.label + '</a>'; }).join("") +
+        TP.nav.map(function (n) { return '<a href="' + base + n.href + '">' + n.label + '</a>'; }).join("") +
         '<a class="btn btn--wa btn--block" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener">Escríbenos al WhatsApp</a>' +
         '<div class="mobile-menu__contact">📍 ' + c.location + '<br>📞 ' + c.phoneDisplay + '</div>';
 
@@ -176,20 +185,21 @@ TP.nav = [
                     '</div>' +
                 '</div>' +
                 '<div><h4>Productos</h4><ul>' +
-                    '<li><a href="pantalon-premium-gregori.html">Pantalón Premium Gregori 14oz</a></li>' +
-                    '<li><a href="pantalon-stretch.html">Pantalón Stretch</a></li>' +
-                    '<li><a href="camisa-industrial-mistral.html">Camisa Industrial Mistral</a></li>' +
-                    '<li><a href="chaleco-antifluidos-azul.html">Chaleco Antifluidos Azul</a></li>' +
-                    '<li><a href="chaleco-gabardina-rojo.html">Chaleco Gabardina Rojo</a></li>' +
-                    '<li><a href="camiseta-jersey.html">Camisetas y Buzos Jersey</a></li>' +
-                    '<li><a href="uniformes-industriales.html">Uniformes Industriales</a></li>' +
+                    '<li><a href="' + base + 'pantalon-premium-gregori.html">Pantalón Premium Gregori 14oz</a></li>' +
+                    '<li><a href="' + base + 'pantalon-stretch.html">Pantalón Stretch</a></li>' +
+                    '<li><a href="' + base + 'camisa-industrial-mistral.html">Camisa Industrial Mistral</a></li>' +
+                    '<li><a href="' + base + 'chaleco-antifluidos-azul.html">Chaleco Antifluidos Azul</a></li>' +
+                    '<li><a href="' + base + 'chaleco-gabardina-rojo.html">Chaleco Gabardina Rojo</a></li>' +
+                    '<li><a href="' + base + 'camiseta-jersey.html">Camisetas y Buzos Jersey</a></li>' +
+                    '<li><a href="' + base + 'uniformes-industriales.html">Uniformes Industriales</a></li>' +
                 '</ul></div>' +
                 '<div><h4>Empresa</h4><ul>' +
-                    '<li><a href="nosotros.html">Sobre Nosotros</a></li>' +
-                    '<li><a href="bordados-corporativos.html">Bordados Corporativos</a></li>' +
-                    '<li><a href="diseno-logotipo.html">Diseño de Logotipo</a></li>' +
-                    '<li><a href="envios.html">Envíos a Ecuador</a></li>' +
-                    '<li><a href="contacto.html">Contacto</a></li>' +
+                    '<li><a href="' + base + 'nosotros.html">Sobre Nosotros</a></li>' +
+                    '<li><a href="' + base + 'blog/index.html">Blog: guías de ropa de trabajo</a></li>' +
+                    '<li><a href="' + base + 'bordados-corporativos.html">Bordados Corporativos</a></li>' +
+                    '<li><a href="' + base + 'diseno-logotipo.html">Diseño de Logotipo</a></li>' +
+                    '<li><a href="' + base + 'envios.html">Envíos a Ecuador</a></li>' +
+                    '<li><a href="' + base + 'contacto.html">Contacto</a></li>' +
                 '</ul></div>' +
                 '<div><h4>Contacto</h4><ul>' +
                     '<li>📍 ' + c.location + '</li>' +
