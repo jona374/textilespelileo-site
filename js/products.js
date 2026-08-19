@@ -81,7 +81,7 @@ TP.products = [
         img: "img/galeria/buzopique-1.webp",
         blurb: "Buzo polo manga larga en tela piqué premium, cuello polo y costuras reforzadas. Varios colores. Perfecto para dotación empresarial y personalización.",
         meta: "Tallas S · M · L · XL",
-        price: "Desde $9", priceNote: "por prenda · +$1 reflectivo",
+        price: "Desde $10", priceNote: "por prenda · +$1 reflectivo",
         msg: "Hola, me interesa el Buzo Polo Piqué. ¿Me ayudan con tallas y precio?"
     },
     {
@@ -103,7 +103,7 @@ TP.products = [
         img: "img/galeria/buzojersey-1.webp",
         blurb: "Buzo manga larga en tela jersey, cómodo y resistente. Base ideal para personalizar con bordado, capucha o cinta reflectiva.",
         meta: "Tallas 36–42",
-        price: "Desde $8", priceNote: "por prenda · +$1 capucha o reflectivo",
+        price: "Desde $9", priceNote: "por prenda · +$1 capucha o reflectivo",
         msg: "Hola, me interesa el Buzo en tela jersey. ¿Me ayudan con tallas y precio?"
     },
     {
@@ -114,7 +114,7 @@ TP.products = [
         img: "img/galeria/buzocapucha-1.webp",
         blurb: "Buzo manga larga con capucha en tela jersey. Cómodo y resistente, ideal para clima fresco y personalización con bordado.",
         meta: "Tallas 36–42",
-        price: "Desde $9", priceNote: "por prenda · +$1 reflectivo",
+        price: "Desde $10", priceNote: "por prenda · +$1 reflectivo",
         msg: "Hola, me interesa el Buzo con Capucha. ¿Me ayudan con tallas y precio?"
     },
     {
