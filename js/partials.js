@@ -76,7 +76,7 @@ TP.nav = [
         { href: "chaleco-antifluidos-azul.html", name: "Chaleco Antifluidos", price: "Cotización", img: "img/galeria/chalecoazul-1.webp" },
         { href: "chaleco-gabardina-rojo.html", name: "Chaleco Gabardina Rojo", price: "Cotización", img: "img/galeria/chalecorojo-1.webp" },
         { href: "camiseta-jersey.html", name: "Camiseta Jersey", price: "Desde $6", img: "img/galeria/cjersey-1.webp" },
-        { href: "buzo-pique.html", name: "Buzo Polo Piqué", price: "Desde $9", img: "img/galeria/buzopique-1.webp" },
+        { href: "buzo-pique.html", name: "Buzo Polo Piqué", price: "Desde $10", img: "img/galeria/buzopique-1.webp" },
         { href: "uniformes-industriales.html", name: "Uniformes Industriales", price: "Cotización", img: "img/uniforme-completo.webp" }
     ];
     function buildMega() {
