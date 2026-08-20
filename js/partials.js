@@ -31,8 +31,15 @@ TP.config = {
 
 /* Prefijo de rutas: los artículos viven en /blog/ y necesitan subir un nivel
    para alcanzar css/, js/, img/ y las páginas de la raíz. */
-TP.inBlog = /\/blog\//.test(location.pathname);
-TP.base = TP.inBlog ? "../" : "";
+(function () {
+    var segs = location.pathname.split("/").filter(Boolean);
+    var last = segs[segs.length - 1] || "";
+    var depth = segs.length - (/\.html?$/i.test(last) ? 1 : 0);
+    TP.depth = depth > 0 ? depth : 0;
+    TP.base = new Array(TP.depth + 1).join("../");
+    TP.section = TP.depth > 0 ? segs[0] : "";
+    TP.inBlog = TP.section === "blog";
+})();
 
 /* Genera un enlace de WhatsApp con mensaje codificado */
 TP.wa = function (msg) {
@@ -54,8 +61,8 @@ TP.nav = [
 (function () {
     var c = TP.config;
     var base = TP.base;
-    var current = TP.inBlog
-        ? "blog/index.html"
+    var current = TP.section
+        ? (/^ropa-de-trabajo-/.test(TP.section) ? "cobertura/index.html" : TP.section + "/index.html")
         : ((location.pathname.split("/").pop() || "index.html") || "index.html");
     var pageMsg = (document.body.getAttribute("data-wa-msg")) || c.defaultMsg;
 
@@ -196,6 +203,7 @@ TP.nav = [
                 '<div><h4>Empresa</h4><ul>' +
                     '<li><a href="' + base + 'nosotros.html">Sobre Nosotros</a></li>' +
                     '<li><a href="' + base + 'blog/index.html">Blog: guías de ropa de trabajo</a></li>' +
+                    '<li><a href="' + base + 'cobertura/index.html">Cobertura: ciudades donde entregamos</a></li>' +
                     '<li><a href="' + base + 'bordados-corporativos.html">Bordados Corporativos</a></li>' +
                     '<li><a href="' + base + 'diseno-logotipo.html">Diseño de Logotipo</a></li>' +
                     '<li><a href="' + base + 'envios.html">Envíos a Ecuador</a></li>' +
