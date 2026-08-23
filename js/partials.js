@@ -88,10 +88,14 @@ TP.nav = [
     var megaItems = [
         { href: "pantalones-de-trabajo/", name: "Pantalones de trabajo", price: "Desde $9", img: "img/gregori-frente.webp" },
         { href: "camisas-industriales/", name: "Camisas industriales", price: "Desde $13", img: "img/camisa-mistral.webp" },
+        { href: "overoles-de-trabajo.html", name: "Overoles y mamelucos", price: "Bajo pedido", img: "img/pantalon-doblado.webp" },
+        { href: "chompas-de-trabajo.html", name: "Chompas de trabajo", price: "Bajo pedido", img: "img/galeria/buzocapucha-1.webp" },
         { href: "chalecos-de-trabajo/", name: "Chalecos de trabajo", price: "Cotización", img: "img/chaleco-antifluidos-azul.webp" },
         { href: "camisetas-y-buzos-corporativos/", name: "Camisetas y buzos", price: "Desde $7", img: "img/camisetas-buzos.webp" },
         { href: "ropa-de-trabajo-alta-visibilidad/", name: "Alta visibilidad", price: "Desde $8", img: "img/chaleco-gabardina-rojo.webp" },
         { href: "ropa-de-trabajo-tallas-grandes/", name: "Tallas grandes", price: "Bajo pedido", img: "img/pantalon-premium-2.webp" },
+        { href: "kit-de-ropa-de-trabajo.html", name: "Kit por trabajador", price: "Desde $27", img: "img/uniforme-completo.webp" },
+        { href: "ropa-de-trabajo-para-mujer.html", name: "Ropa de trabajo mujer", price: "Bajo pedido", img: "img/galeria/camisa-1.webp" },
         { href: "uniformes-industriales.html", name: "Uniformes industriales", price: "Cotización", img: "img/uniforme-completo.webp" },
         { href: "bordados-corporativos.html", name: "Bordados corporativos", price: "Desde $2", img: "img/bordado-primer-plano.webp" }
     ];
@@ -192,13 +196,23 @@ TP.nav = [
                     '</div>' +
                 '</div>' +
                 '<div><h4>Productos</h4><ul>' +
-                    '<li><a href="' + base + 'pantalon-premium-gregori.html">Pantalón Premium Gregori 14oz</a></li>' +
+                    '<li><a href="' + base + 'pantalon-premium-gregori.html">Pantalón de trabajo en jean 14oz</a></li>' +
                     '<li><a href="' + base + 'pantalon-stretch.html">Pantalón Stretch</a></li>' +
                     '<li><a href="' + base + 'camisa-industrial-mistral.html">Camisa Industrial Mistral</a></li>' +
-                    '<li><a href="' + base + 'chaleco-antifluidos-azul.html">Chaleco Antifluidos Azul</a></li>' +
-                    '<li><a href="' + base + 'chaleco-gabardina-rojo.html">Chaleco Gabardina Rojo</a></li>' +
+                    '<li><a href="' + base + 'overoles-de-trabajo.html">Overoles y mamelucos</a></li>' +
+                    '<li><a href="' + base + 'chompas-de-trabajo.html">Chompas de trabajo</a></li>' +
                     '<li><a href="' + base + 'camiseta-jersey.html">Camisetas y Buzos Jersey</a></li>' +
                     '<li><a href="' + base + 'uniformes-industriales.html">Uniformes Industriales</a></li>' +
+                '</ul></div>' +
+                '<div><h4>Líneas</h4><ul>' +
+                    '<li><a href="' + base + 'kit-de-ropa-de-trabajo.html">Kit de ropa de trabajo</a></li>' +
+                    '<li><a href="' + base + 'ropa-de-trabajo-para-mujer.html">Ropa de trabajo para mujer</a></li>' +
+                    '<li><a href="' + base + 'ropa-de-trabajo-alta-visibilidad/">Alta visibilidad</a></li>' +
+                    '<li><a href="' + base + 'ropa-de-trabajo-tallas-grandes/">Tallas grandes</a></li>' +
+                    '<li><a href="' + base + 'ropa-antifluido-y-de-limpieza.html">Antifluido y limpieza</a></li>' +
+                    '<li><a href="' + base + 'accesorios-y-complementos.html">Accesorios y complementos</a></li>' +
+                    '<li><a href="' + base + 'calzado-de-seguridad.html">Calzado de seguridad</a></li>' +
+                    '<li><a href="' + base + 'ropa-ignifuga.html">Ropa ignífuga</a></li>' +
                 '</ul></div>' +
                 '<div><h4>Empresa</h4><ul>' +
                     '<li><a href="' + base + 'nosotros.html">Sobre Nosotros</a></li>' +
