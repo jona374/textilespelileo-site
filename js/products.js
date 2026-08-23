@@ -175,23 +175,24 @@ TP.products = [
 ];
 
 TP.cardHTML = function (p, i) {
+    var url = (TP.u ? TP.u(p.slug) : p.slug);
     var media = p.img
-        ? '<img src="' + p.img + '" alt="' + p.name + ' — Textiles Pelileo" loading="lazy" width="600" height="450">'
+        ? '<img src="' + (TP.u ? TP.u(p.img) : p.img) + '" alt="' + p.name + ' — Textiles Pelileo" loading="lazy" width="600" height="450">'
         : '<div class="ph-img"><div><div class="ph-mono">TP</div><div class="ph-txt">Foto próximamente</div></div></div>';
     var delay = ["", "d1", "d2"][i % 3];
     return '' +
     '<article class="card reveal ' + delay + '">' +
-        '<a class="card__media" href="' + p.slug + '" aria-label="' + p.name + '">' +
+        '<a class="card__media" href="' + url + '" aria-label="' + p.name + '">' +
             '<span class="badge ' + (p.badgeClass || "") + '">' + p.badge + '</span>' + media +
         '</a>' +
         '<div class="card__body">' +
-            '<h3><a href="' + p.slug + '">' + p.name + '</a></h3>' +
+            '<h3><a href="' + url + '">' + p.name + '</a></h3>' +
             '<div class="card__meta">' + p.meta + '</div>' +
             '<p>' + p.blurb + '</p>' +
             '<div class="card__price">' + p.price + ' <small>' + p.priceNote + '</small></div>' +
             '<div class="card__foot">' +
                 '<a class="btn btn--wa btn--block" href="' + TP.wa(p.msg) + '" target="_blank" rel="noopener">Cotizar por WhatsApp</a>' +
-                '<a class="btn btn--outline btn--block mt-1" href="' + p.slug + '">Ver detalles</a>' +
+                '<a class="btn btn--outline btn--block mt-1" href="' + url + '">Ver detalles</a>' +
             '</div>' +
         '</div>' +
     '</article>';

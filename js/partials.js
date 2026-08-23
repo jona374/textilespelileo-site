@@ -35,10 +35,20 @@ TP.wa = function (msg) {
     return "https://wa.me/" + TP.config.phoneIntl + "?text=" + text;
 };
 
+/* Raíz del sitio para páginas en subcarpetas (ej. /sectores/):
+   la página declara <body data-root="../../"> y todas las rutas
+   internas de partials/productos se resuelven contra esa raíz. */
+TP.root = "";
+TP.u = function (p) {
+    if (!p || /^(https?:|#|tel:|mailto:)/.test(p)) return p;
+    return TP.root + p;
+};
+
 /* Menú principal */
 TP.nav = [
     { label: "Inicio", href: "index.html" },
     { label: "Productos", href: "productos.html" },
+    { label: "Sectores", href: "sectores/" },
     { label: "Uniformes", href: "uniformes-industriales.html" },
     { label: "Bordados", href: "bordados-corporativos.html" },
     { label: "Nosotros", href: "nosotros.html" },
@@ -47,7 +57,10 @@ TP.nav = [
 
 (function () {
     var c = TP.config;
+    TP.root = document.body.getAttribute("data-root") || "";
+    if (TP.root && TP.root.slice(-1) !== "/") TP.root += "/";
     var current = (location.pathname.split("/").pop() || "index.html") || "index.html";
+    if (TP.root) current = (location.pathname.indexOf("/sectores/") > -1) ? "sectores/" : "";
     var pageMsg = (document.body.getAttribute("data-wa-msg")) || c.defaultMsg;
 
     /* ---------- PRELOADER (oculto al cargar imágenes/fuentes) ---------- */
@@ -57,7 +70,7 @@ TP.nav = [
     pre.innerHTML =
         '<div style="text-align:center">' +
             (c.logo
-                ? '<img class="preloader__logo" src="' + c.logo + '" alt="">'
+                ? '<img class="preloader__logo" src="' + TP.u(c.logo) + '" alt="">'
                 : '<div style="font-family:var(--font-head);font-weight:800;font-size:1.6rem;color:var(--navy-900);letter-spacing:.02em">TEXTILES PELILEO</div>') +
             '<div class="preloader__bar"></div>' +
         '</div>';
@@ -81,8 +94,8 @@ TP.nav = [
     ];
     function buildMega() {
         var grid = megaItems.map(function (p) {
-            return '<a class="mega__item" href="' + p.href + '">' +
-                '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
+            return '<a class="mega__item" href="' + TP.u(p.href) + '">' +
+                '<img src="' + TP.u(p.img) + '" alt="' + p.name + '" loading="lazy">' +
                 '<span class="nm">' + p.name + '</span>' +
                 '<span class="pr">' + p.price + '</span>' +
             '</a>';
@@ -90,7 +103,7 @@ TP.nav = [
         return '<div class="mega" role="menu">' +
             '<div class="mega__grid">' + grid + '</div>' +
             '<div class="mega__foot">' +
-                '<a class="lk" href="productos.html">→ Ver todo el catálogo</a>' +
+                '<a class="lk" href="' + TP.u("productos.html") + '">→ Ver todo el catálogo</a>' +
                 '<a class="btn btn--wa" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotizar</a>' +
             '</div>' +
         '</div>';
@@ -98,20 +111,21 @@ TP.nav = [
 
     var navLinks = TP.nav.map(function (n) {
         var active = (n.href === current) ? ' aria-current="page"' : '';
+        if (n.href === "sectores/" && TP.root) active = (location.pathname.indexOf("/sectores/") > -1) ? ' aria-current="page"' : '';
         if (n.href === "productos.html") {
-            return '<span class="has-mega"><a href="' + n.href + '"' + active + '>' + n.label + ' ▾</a>' + buildMega() + '</span>';
+            return '<span class="has-mega"><a href="' + TP.u(n.href) + '"' + active + '>' + n.label + ' ▾</a>' + buildMega() + '</span>';
         }
-        return '<a href="' + n.href + '"' + active + '>' + n.label + '</a>';
+        return '<a href="' + TP.u(n.href) + '"' + active + '>' + n.label + '</a>';
     }).join("");
 
     /* Marca: logo real si está configurado; si no, emblema heritage + wordmark */
     function brandHTML(light) {
         var src = light ? c.logoLight : c.logo;
         if (src) {
-            return '<a class="brand" href="index.html" aria-label="Textiles Pelileo - Inicio">' +
-                '<img class="brand__logo" src="' + src + '" alt="Textiles Pelileo" width="240" height="118"></a>';
+            return '<a class="brand" href="' + TP.u("index.html") + '" aria-label="Textiles Pelileo - Inicio">' +
+                '<img class="brand__logo" src="' + TP.u(src) + '" alt="Textiles Pelileo" width="240" height="118"></a>';
         }
-        return '<a class="brand" href="index.html" aria-label="Textiles Pelileo - Inicio">' +
+        return '<a class="brand" href="' + TP.u("index.html") + '" aria-label="Textiles Pelileo - Inicio">' +
             '<span class="brand__emblem"><i class="fas fa-horse-head"></i></span>' +
             '<span><span class="brand__name">TEXTILES PELILEO</span><br>' +
             '<span class="brand__tag">Desde 2010 · Duradero por Naturaleza</span></span></a>';
@@ -150,7 +164,7 @@ TP.nav = [
     mm.className = "mobile-menu";
     mm.id = "mobileMenu";
     mm.innerHTML =
-        TP.nav.map(function (n) { return '<a href="' + n.href + '">' + n.label + '</a>'; }).join("") +
+        TP.nav.map(function (n) { return '<a href="' + TP.u(n.href) + '">' + n.label + '</a>'; }).join("") +
         '<a class="btn btn--wa btn--block" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener">Escríbenos al WhatsApp</a>' +
         '<div class="mobile-menu__contact">📍 ' + c.location + '<br>📞 ' + c.phoneDisplay + '</div>';
 
@@ -176,20 +190,21 @@ TP.nav = [
                     '</div>' +
                 '</div>' +
                 '<div><h4>Productos</h4><ul>' +
-                    '<li><a href="pantalon-premium-gregori.html">Pantalón Premium Gregori 14oz</a></li>' +
-                    '<li><a href="pantalon-stretch.html">Pantalón Stretch</a></li>' +
-                    '<li><a href="camisa-industrial-mistral.html">Camisa Industrial Mistral</a></li>' +
-                    '<li><a href="chaleco-antifluidos-azul.html">Chaleco Antifluidos Azul</a></li>' +
-                    '<li><a href="chaleco-gabardina-rojo.html">Chaleco Gabardina Rojo</a></li>' +
-                    '<li><a href="camiseta-jersey.html">Camisetas y Buzos Jersey</a></li>' +
-                    '<li><a href="uniformes-industriales.html">Uniformes Industriales</a></li>' +
+                    '<li><a href="' + TP.u("pantalon-premium-gregori.html") + '">Pantalón Premium Gregori 14oz</a></li>' +
+                    '<li><a href="' + TP.u("pantalon-stretch.html") + '">Pantalón Stretch</a></li>' +
+                    '<li><a href="' + TP.u("camisa-industrial-mistral.html") + '">Camisa Industrial Mistral</a></li>' +
+                    '<li><a href="' + TP.u("chaleco-antifluidos-azul.html") + '">Chaleco Antifluidos Azul</a></li>' +
+                    '<li><a href="' + TP.u("chaleco-gabardina-rojo.html") + '">Chaleco Gabardina Rojo</a></li>' +
+                    '<li><a href="' + TP.u("camiseta-jersey.html") + '">Camisetas y Buzos Jersey</a></li>' +
+                    '<li><a href="' + TP.u("uniformes-industriales.html") + '">Uniformes Industriales</a></li>' +
                 '</ul></div>' +
                 '<div><h4>Empresa</h4><ul>' +
-                    '<li><a href="nosotros.html">Sobre Nosotros</a></li>' +
-                    '<li><a href="bordados-corporativos.html">Bordados Corporativos</a></li>' +
-                    '<li><a href="diseno-logotipo.html">Diseño de Logotipo</a></li>' +
-                    '<li><a href="envios.html">Envíos a Ecuador</a></li>' +
-                    '<li><a href="contacto.html">Contacto</a></li>' +
+                    '<li><a href="' + TP.u("nosotros.html") + '">Sobre Nosotros</a></li>' +
+                    '<li><a href="' + TP.u("sectores/") + '">Sectores Industriales</a></li>' +
+                    '<li><a href="' + TP.u("bordados-corporativos.html") + '">Bordados Corporativos</a></li>' +
+                    '<li><a href="' + TP.u("diseno-logotipo.html") + '">Diseño de Logotipo</a></li>' +
+                    '<li><a href="' + TP.u("envios.html") + '">Envíos a Ecuador</a></li>' +
+                    '<li><a href="' + TP.u("contacto.html") + '">Contacto</a></li>' +
                 '</ul></div>' +
                 '<div><h4>Contacto</h4><ul>' +
                     '<li>📍 ' + c.location + '</li>' +

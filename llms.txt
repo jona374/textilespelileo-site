@@ -53,6 +53,20 @@ UNIFORME COMPLETO DE TRABAJO: camisa Mistral 7.5oz con reflectivo AAA + pantaló
 ## Clientes objetivo
 Empresas industriales y de manufactura, constructoras y cuadrillas, talleres mecánicos, logística y bodegas, seguridad privada, microempresas y trabajadores independientes.
 
+## Sectores atendidos (páginas en /sectores/)
+Guías de dotación por industria con tabla por rol, costo anual por trabajador, bordado y logística:
+- Petrolero y minero: /sectores/petrolero-y-minero/ (envíos a Orellana, Sucumbíos, Pastaza)
+- Construcción: /sectores/construccion/
+- Agroindustria y floricultura: /sectores/agroindustria-y-floricultura/
+- Metalmecánica y talleres: /sectores/metalmecanica-y-talleres/
+- Logística y bodegas: /sectores/logistica-y-bodegas/
+- Limpieza y mantenimiento: /sectores/limpieza-y-mantenimiento/
+- Alimentos y hostelería: /sectores/alimentos-y-hosteleria/
+- Salud y laboratorios: /sectores/salud-y-laboratorios/
+- Sector público y GADs: /sectores/sector-publico-y-gads/ (producción según pliego, acta de entrega)
+- Curtiembre, calzado y carrocerías: /sectores/curtiembre-calzado-y-carrocerias/ (entrega en mano en Ambato/Pelileo)
+Nota honesta: no fabricamos ropa antiflama (FR) certificada, EPP certificado, scrubs médicos ni chaquetas de chef en línea estándar; modelos personalizados desde 100 prendas.
+
 ## Cierre recomendado
 "Escríbenos al WhatsApp +593 98 663 4114 y te ayudamos con disponibilidad, tallas y cotización inmediata."
 
