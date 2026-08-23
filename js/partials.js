@@ -51,6 +51,7 @@ TP.wa = function (msg) {
 TP.nav = [
     { label: "Inicio", href: "index.html" },
     { label: "Productos", href: "productos.html" },
+    { label: "Sectores", href: "sectores/index.html" },
     { label: "Uniformes", href: "uniformes-industriales.html" },
     { label: "Bordados", href: "bordados-corporativos.html" },
     { label: "Nosotros", href: "nosotros.html" },
@@ -218,6 +219,7 @@ TP.nav = [
                     '<li><a href="' + base + 'nosotros.html">Sobre Nosotros</a></li>' +
                     '<li><a href="' + base + 'blog/index.html">Blog: guías de ropa de trabajo</a></li>' +
                     '<li><a href="' + base + 'cobertura/index.html">Cobertura: ciudades donde entregamos</a></li>' +
+                    '<li><a href="' + base + 'sectores/index.html">Sectores que vestimos</a></li>' +
                     '<li><a href="' + base + 'bordados-corporativos.html">Bordados Corporativos</a></li>' +
                     '<li><a href="' + base + 'diseno-logotipo.html">Diseño de Logotipo</a></li>' +
                     '<li><a href="' + base + 'envios.html">Envíos a Ecuador</a></li>' +
