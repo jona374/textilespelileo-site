@@ -9,14 +9,14 @@ window.TP = window.TP || {};
 TP.products = [
     {
         slug: "pantalon-premium-gregori.html",
-        name: "Pantalón Premium Gregori 14oz",
+        name: "Pantalón de Trabajo en Jean 14oz",
         cat: "pantalones",
         badge: "Top ventas", badgeClass: "badge--gold",
         img: "img/galeria/p14-1.webp",
-        blurb: "Tela Gregori 14oz 100% algodón de Textiles Vicuña. Triple costura, herrajes inoxidables y color que no destiñe.",
+        blurb: "Jean industrial Gregori 14oz, 100% algodón de Textiles Vicuña. Triple costura, herrajes inoxidables y color que no destiñe.",
         meta: "Tallas 28–38 en stock · 26–46 bajo pedido",
         price: "Desde $12", priceNote: "por mayor · $15 unitario",
-        msg: "Hola, me interesa el Pantalón Premium Gregori 14oz. ¿Me ayudan con disponibilidad, tallas y precio por mayor?"
+        msg: "Hola, me interesa el Pantalón de Trabajo en Jean 14oz (Gregori Premium). ¿Me ayudan con disponibilidad, tallas y precio por mayor?"
     },
     {
         slug: "pantalon-stretch.html",
@@ -138,6 +138,116 @@ TP.products = [
         meta: "Tallas S · M · L · XL",
         price: "Desde $14", priceNote: "por mayor · $15 unitario",
         msg: "Hola, me interesa el Chaleco Gabardina Reflectivo Rojo. ¿Me ayudan con tallas y precio?"
+    },
+    {
+        slug: "overol-enterizo-jean-14oz.html",
+        name: "Overol de Trabajo Enterizo en Jean 14oz",
+        cat: "overoles",
+        badge: "Nueva línea", badgeClass: "badge--gold",
+        img: "",
+        blurb: "Overol enterizo con cierre frontal, en jean Gregori 14oz o gabardina. Costuras reforzadas, bolsillos de herramienta y opción de cinta reflectiva. Fabricación bajo pedido.",
+        meta: "Bajo pedido · tallas S–XXL · jean o gabardina",
+        price: "Cotización", priceNote: "según tela, cantidad y acabados",
+        msg: "Hola, me interesa el Overol de Trabajo Enterizo en jean 14oz. ¿Me ayudan con tallas, plazo de producción y precio por cantidad?"
+    },
+    {
+        slug: "overol-peto-jean-14oz.html",
+        name: "Overol Tipo Peto en Jean 14oz",
+        cat: "overoles",
+        badge: "Nueva línea", badgeClass: "badge--gold",
+        img: "",
+        blurb: "Mameluco tipo peto con tirantes regulables y peto con bolsillo porta herramientas, en jean 14oz o gabardina. Se usa sobre camiseta o camisa de trabajo.",
+        meta: "Bajo pedido · tallas S–XXL · jean o gabardina",
+        price: "Cotización", priceNote: "según tela, cantidad y acabados",
+        msg: "Hola, me interesa el Overol Tipo Peto en jean 14oz. ¿Me ayudan con tallas, plazo de producción y precio por cantidad?"
+    },
+    {
+        slug: "chompas-de-trabajo.html",
+        name: "Chompa de Trabajo en Jean o Gabardina",
+        cat: "overoles",
+        badge: "Nueva línea", badgeClass: "badge--gold",
+        img: "",
+        blurb: "Casaca de trabajo en jean 14oz o gabardina, con opción de cinta reflectiva y espacio para bordado en el pecho. La tercera prenda de toda dotación.",
+        meta: "Bajo pedido · tallas S–XXL",
+        price: "Cotización", priceNote: "según tela, cantidad y acabados",
+        msg: "Hola, me interesa la Chompa de Trabajo (jean o gabardina). ¿Me ayudan con tallas, plazo y precio por cantidad?"
+    },
+    {
+        slug: "ropa-de-trabajo-para-mujer.html",
+        name: "Ropa de Trabajo para Mujer",
+        cat: "mujer",
+        badge: "Patronaje femenino", badgeClass: "badge--gold",
+        img: "",
+        blurb: "Pantalón, camisa y chompa con patronaje femenino real: no son tallas de hombre reducidas. Mismas telas y refuerzos de nuestra línea industrial.",
+        meta: "Bajo pedido · tallas 4–16 (equivalencia S–XXL)",
+        price: "Cotización", priceNote: "según prenda y cantidad",
+        msg: "Hola, me interesa la línea de Ropa de Trabajo para Mujer con patronaje femenino. ¿Me ayudan con tallas, prendas disponibles y precio?"
+    },
+    {
+        slug: "ropa-de-trabajo-alta-visibilidad.html",
+        name: "Línea de Alta Visibilidad",
+        cat: "chalecos",
+        badge: "Cinta reflectiva", badgeClass: "badge--gold",
+        img: "img/galeria/chalecorojo-1.webp",
+        blurb: "Chalecos, camisas y prendas con cinta reflectiva de alta visibilidad para trabajo en vía, exteriores, obra y logística nocturna.",
+        meta: "Chalecos en stock · resto bajo pedido",
+        price: "Desde $14", priceNote: "chalecos · resto según prenda",
+        msg: "Hola, me interesa la línea de Ropa de Trabajo de Alta Visibilidad con cinta reflectiva. ¿Me ayudan con opciones y precios?"
+    },
+    {
+        slug: "ropa-antifluido-y-de-limpieza.html",
+        name: "Ropa Antifluido y de Limpieza",
+        cat: "antifluido",
+        badge: "Alimentos y salud", badgeClass: "badge--navy",
+        img: "img/galeria/chalecoazul-1.webp",
+        blurb: "Mandil, filipina, chaleco y pantalón en tela antifluidos que repele líquidos. Para limpieza, cocinas, alimentos y áreas clínicas.",
+        meta: "Chaleco en stock · resto bajo pedido",
+        price: "Cotización", priceNote: "según prenda y cantidad",
+        msg: "Hola, me interesa la línea Antifluido y de Limpieza (mandil, filipina, pantalón). ¿Me ayudan con opciones y precios?"
+    },
+    {
+        slug: "kit-de-ropa-de-trabajo.html",
+        name: "Kit de Dotación por Trabajador",
+        cat: "servicios",
+        badge: "Ahorra tiempo", badgeClass: "badge--gold",
+        img: "img/uniforme-completo.webp",
+        blurb: "Tres niveles de dotación con precio por trabajador y bordado incluido: básico, completo y premium. Cotizas una vez, no prenda por prenda.",
+        meta: "Precio por trabajador · bordado incluido",
+        price: "Cotización", priceNote: "por trabajador según nivel",
+        msg: "Hola, quiero cotizar un Kit de Dotación por trabajador. ¿Me ayudan con los niveles y el precio por persona?"
+    },
+    {
+        slug: "accesorios-y-complementos.html",
+        name: "Accesorios y Complementos",
+        cat: "servicios",
+        badge: "Complementa el kit", badgeClass: "badge--navy",
+        img: "img/bordado-primer-plano.webp",
+        blurb: "Gorras bordadas, mandiles, cubremangas y complementos para redondear la dotación de tu equipo en un solo pedido.",
+        meta: "Bajo pedido · se suman a cualquier kit",
+        price: "Cotización", priceNote: "según accesorio y cantidad",
+        msg: "Hola, me interesan los Accesorios y Complementos (gorras, mandiles, cubremangas). ¿Me ayudan con opciones y precios?"
+    },
+    {
+        slug: "calzado-de-seguridad.html",
+        name: "Calzado de Seguridad",
+        cat: "servicios",
+        badge: "Bajo pedido", badgeClass: "badge--navy",
+        img: "",
+        blurb: "Botas de seguridad con punta de acero o composite a través de proveedor aliado, para cerrar la dotación completa en una sola cotización.",
+        meta: "Bajo pedido · con proveedor aliado",
+        price: "Cotización", priceNote: "según modelo y cantidad",
+        msg: "Hola, necesito Calzado de Seguridad junto con la ropa de trabajo. ¿Me ayudan con modelos, tallas y precio?"
+    },
+    {
+        slug: "ropa-ignifuga.html",
+        name: "Ropa Ignífuga (consulta técnica)",
+        cat: "servicios",
+        badge: "Asesoría", badgeClass: "badge--navy",
+        img: "",
+        blurb: "Confección bajo pedido con tela ignífuga certificada por el fabricante de la tela. Cada proyecto se evalúa antes de comprometer una entrega.",
+        meta: "Solo bajo pedido · con ficha técnica del proveedor",
+        price: "Consulta", priceNote: "proyecto evaluado caso por caso",
+        msg: "Hola, necesito ropa de trabajo ignífuga. ¿Me ayudan con la asesoría técnica y disponibilidad de tela certificada?"
     },
     {
         slug: "uniformes-industriales.html",

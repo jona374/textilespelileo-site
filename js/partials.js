@@ -70,14 +70,18 @@ TP.nav = [
 
     // Productos destacados para el mega menú (8 items)
     var megaItems = [
-        { href: "pantalon-premium-gregori.html", name: "Pantalón Premium 14oz", price: "Desde $12", img: "img/pantalon-doblado.webp" },
+        { href: "pantalon-premium-gregori.html", name: "Pantalón jean 14oz", price: "Desde $12", img: "img/pantalon-doblado.webp" },
         { href: "pantalon-stretch.html", name: "Pantalón Stretch", price: "Desde $12", img: "img/galeria/stretch-1.webp" },
         { href: "camisa-industrial-mistral.html", name: "Camisa Mistral", price: "Desde $12", img: "img/galeria/camisa-1.webp" },
         { href: "chaleco-antifluidos-azul.html", name: "Chaleco Antifluidos", price: "Cotización", img: "img/galeria/chalecoazul-1.webp" },
         { href: "chaleco-gabardina-rojo.html", name: "Chaleco Gabardina Rojo", price: "Cotización", img: "img/galeria/chalecorojo-1.webp" },
         { href: "camiseta-jersey.html", name: "Camiseta Jersey", price: "Desde $6", img: "img/galeria/cjersey-1.webp" },
         { href: "buzo-pique.html", name: "Buzo Polo Piqué", price: "Desde $9", img: "img/galeria/buzopique-1.webp" },
-        { href: "uniformes-industriales.html", name: "Uniformes Industriales", price: "Cotización", img: "img/uniforme-completo.webp" }
+        { href: "uniformes-industriales.html", name: "Uniformes Industriales", price: "Cotización", img: "img/uniforme-completo.webp" },
+        { href: "overoles-de-trabajo.html", name: "Overoles de trabajo", price: "Cotización", img: "img/pantalon-doblado.webp" },
+        { href: "chompas-de-trabajo.html", name: "Chompas de trabajo", price: "Cotización", img: "img/galeria/buzocapucha-1.webp" },
+        { href: "kit-de-ropa-de-trabajo.html", name: "Kit por trabajador", price: "Desde $27", img: "img/uniforme-completo.webp" },
+        { href: "ropa-de-trabajo-para-mujer.html", name: "Ropa de trabajo mujer", price: "Cotización", img: "img/galeria/camisa-1.webp" }
     ];
     function buildMega() {
         var grid = megaItems.map(function (p) {
@@ -176,13 +180,22 @@ TP.nav = [
                     '</div>' +
                 '</div>' +
                 '<div><h4>Productos</h4><ul>' +
-                    '<li><a href="pantalon-premium-gregori.html">Pantalón Premium Gregori 14oz</a></li>' +
+                    '<li><a href="pantalon-premium-gregori.html">Pantalón de trabajo en jean 14oz</a></li>' +
                     '<li><a href="pantalon-stretch.html">Pantalón Stretch</a></li>' +
                     '<li><a href="camisa-industrial-mistral.html">Camisa Industrial Mistral</a></li>' +
-                    '<li><a href="chaleco-antifluidos-azul.html">Chaleco Antifluidos Azul</a></li>' +
-                    '<li><a href="chaleco-gabardina-rojo.html">Chaleco Gabardina Rojo</a></li>' +
+                    '<li><a href="overoles-de-trabajo.html">Overoles y mamelucos</a></li>' +
+                    '<li><a href="chompas-de-trabajo.html">Chompas de trabajo</a></li>' +
                     '<li><a href="camiseta-jersey.html">Camisetas y Buzos Jersey</a></li>' +
                     '<li><a href="uniformes-industriales.html">Uniformes Industriales</a></li>' +
+                '</ul></div>' +
+                '<div><h4>Líneas</h4><ul>' +
+                    '<li><a href="kit-de-ropa-de-trabajo.html">Kit de ropa de trabajo</a></li>' +
+                    '<li><a href="ropa-de-trabajo-para-mujer.html">Ropa de trabajo para mujer</a></li>' +
+                    '<li><a href="ropa-de-trabajo-alta-visibilidad.html">Alta visibilidad</a></li>' +
+                    '<li><a href="ropa-antifluido-y-de-limpieza.html">Antifluido y limpieza</a></li>' +
+                    '<li><a href="accesorios-y-complementos.html">Accesorios y complementos</a></li>' +
+                    '<li><a href="calzado-de-seguridad.html">Calzado de seguridad</a></li>' +
+                    '<li><a href="ropa-ignifuga.html">Ropa ignífuga</a></li>' +
                 '</ul></div>' +
                 '<div><h4>Empresa</h4><ul>' +
                     '<li><a href="nosotros.html">Sobre Nosotros</a></li>' +
