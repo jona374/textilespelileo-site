@@ -86,14 +86,14 @@ TP.nav = [
 
     // Productos destacados para el mega menú (8 items)
     var megaItems = [
-        { href: "pantalon-premium-gregori.html", name: "Pantalón Premium 14oz", price: "Desde $12", img: "img/pantalon-doblado.webp" },
-        { href: "pantalon-stretch.html", name: "Pantalón Stretch", price: "Desde $12", img: "img/galeria/stretch-1.webp" },
-        { href: "camisa-industrial-mistral.html", name: "Camisa Mistral", price: "Desde $12", img: "img/galeria/camisa-1.webp" },
-        { href: "chaleco-antifluidos-azul.html", name: "Chaleco Antifluidos", price: "Cotización", img: "img/galeria/chalecoazul-1.webp" },
-        { href: "chaleco-gabardina-rojo.html", name: "Chaleco Gabardina Rojo", price: "Cotización", img: "img/galeria/chalecorojo-1.webp" },
-        { href: "camiseta-jersey.html", name: "Camiseta Jersey", price: "Desde $7", img: "img/galeria/cjersey-1.webp" },
-        { href: "buzo-pique.html", name: "Buzo Polo Piqué", price: "Desde $10", img: "img/galeria/buzopique-1.webp" },
-        { href: "uniformes-industriales.html", name: "Uniformes Industriales", price: "Cotización", img: "img/uniforme-completo.webp" }
+        { href: "pantalones-de-trabajo/", name: "Pantalones de trabajo", price: "Desde $9", img: "img/gregori-frente.webp" },
+        { href: "camisas-industriales/", name: "Camisas industriales", price: "Desde $13", img: "img/camisa-mistral.webp" },
+        { href: "chalecos-de-trabajo/", name: "Chalecos de trabajo", price: "Cotización", img: "img/chaleco-antifluidos-azul.webp" },
+        { href: "camisetas-y-buzos-corporativos/", name: "Camisetas y buzos", price: "Desde $7", img: "img/camisetas-buzos.webp" },
+        { href: "ropa-de-trabajo-alta-visibilidad/", name: "Alta visibilidad", price: "Desde $8", img: "img/chaleco-gabardina-rojo.webp" },
+        { href: "ropa-de-trabajo-tallas-grandes/", name: "Tallas grandes", price: "Bajo pedido", img: "img/pantalon-premium-2.webp" },
+        { href: "uniformes-industriales.html", name: "Uniformes industriales", price: "Cotización", img: "img/uniforme-completo.webp" },
+        { href: "bordados-corporativos.html", name: "Bordados corporativos", price: "Desde $2", img: "img/bordado-primer-plano.webp" }
     ];
     function buildMega() {
         var grid = megaItems.map(function (p) {
