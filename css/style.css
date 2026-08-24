@@ -1149,3 +1149,10 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
     .post__cta { padding: 26px 20px; }
     .post__lead { font-size: 1.04rem; padding-left: 16px; }
 }
+
+/* Tarjetas de sector enlazadas (mismo aspecto que .feature, con affordance de enlace) */
+a.feature { display: block; color: inherit; }
+a.feature:hover { border-color: var(--leather-light); transform: translateY(-3px); }
+a.feature h3 { transition: var(--t); }
+a.feature:hover h3 { color: var(--leather); }
+.bg-navy a.feature:hover h3 { color: var(--gold); }
