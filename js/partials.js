@@ -29,6 +29,66 @@ TP.config = {
     defaultMsg: "Hola, me interesa la ropa de trabajo de Textiles Pelileo. ¿Me ayudan con disponibilidad, tallas y cotización?"
 };
 
+/* ============================================================
+   ORIGEN DE LA VISITA (UTM)
+   Lee los parámetros utm_* del enlace por el que entró la persona,
+   los guarda para toda la visita y los añade al final del mensaje de
+   WhatsApp. Así sabes desde qué video, publicación o anuncio te
+   escribieron, sin depender de ninguna herramienta externa.
+   ============================================================ */
+(function () {
+    var KEY = "tp_origen";
+    var q = new URLSearchParams(location.search);
+    var utm = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach(function (k) {
+        var v = q.get(k);
+        if (v) utm[k] = v.slice(0, 40);
+    });
+    /* Identificadores de clic de las plataformas (por si el enlace no lleva utm) */
+    ["fbclid", "ttclid", "gclid"].forEach(function (k) { if (q.get(k)) utm[k] = "1"; });
+
+    function guardar(o) {
+        try { sessionStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {}
+    }
+    function leer() {
+        try { return JSON.parse(sessionStorage.getItem(KEY) || "null"); } catch (e) { return null; }
+    }
+
+    /* La primera página de la visita manda: si ya hay origen guardado no se pisa */
+    var previo = leer();
+    if (Object.keys(utm).length) {
+        if (!previo) { utm.p = location.pathname; guardar(utm); }
+    } else if (!previo) {
+        /* Sin utm: deducimos de dónde viene por el sitio que lo refirió */
+        var ref = "";
+        try { ref = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, "") : ""; } catch (e) {}
+        if (ref && ref.indexOf(location.hostname) === -1) {
+            var mapa = {
+                "instagram.com": "instagram", "l.instagram.com": "instagram",
+                "facebook.com": "facebook", "l.facebook.com": "facebook", "m.facebook.com": "facebook",
+                "tiktok.com": "tiktok", "google.com": "google", "google.com.ec": "google",
+                "bing.com": "bing", "youtube.com": "youtube", "t.co": "twitter"
+            };
+            guardar({ utm_source: mapa[ref] || ref, utm_medium: "referido" });
+        }
+    }
+
+    TP.utm = leer() || {};
+
+    /* Etiqueta corta y legible para pegar en el mensaje de WhatsApp */
+    TP.origen = function () {
+        var u = TP.utm || {};
+        var partes = [u.utm_source, u.utm_medium, u.utm_campaign, u.utm_content].filter(Boolean);
+        if (!partes.length) {
+            if (u.fbclid) return "meta-ads";
+            if (u.ttclid) return "tiktok-ads";
+            if (u.gclid) return "google-ads";
+            return "";
+        }
+        return partes.join(" · ");
+    };
+})();
+
 /* Prefijo de rutas: los artículos viven en /blog/ y necesitan subir un nivel
    para alcanzar css/, js/, img/ y las páginas de la raíz. */
 (function () {
@@ -43,8 +103,10 @@ TP.config = {
 
 /* Genera un enlace de WhatsApp con mensaje codificado */
 TP.wa = function (msg) {
-    var text = encodeURIComponent(msg || TP.config.defaultMsg);
-    return "https://wa.me/" + TP.config.phoneIntl + "?text=" + text;
+    var cuerpo = msg || TP.config.defaultMsg;
+    var origen = (typeof TP.origen === "function") ? TP.origen() : "";
+    if (origen) cuerpo += "\n\n— vine desde: " + origen;
+    return "https://wa.me/" + TP.config.phoneIntl + "?text=" + encodeURIComponent(cuerpo);
 };
 
 /* Menú principal */

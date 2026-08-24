@@ -25,11 +25,21 @@
         ttq.load(TIKTOK_PIXEL_ID); ttq.page();
     }(window, document, "ttq");
 
-    /* Registra clic en WhatsApp como conversión (Lead/Contact) */
+    /* Registra clic en WhatsApp como conversión (Lead/Contact), con el
+       origen de la visita para poder segmentar después en cada plataforma */
     document.addEventListener("click", function (e) {
         var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
         if (!a) return;
-        if (window.fbq) fbq("track", "Contact");
-        if (window.ttq) ttq.track("Contact");
+        var datos = {};
+        try {
+            var o = JSON.parse(sessionStorage.getItem("tp_origen") || "null");
+            if (o) {
+                if (o.utm_source) datos.source = o.utm_source;
+                if (o.utm_campaign) datos.campaign = o.utm_campaign;
+                if (o.utm_content) datos.content = o.utm_content;
+            }
+        } catch (err) {}
+        if (window.fbq) fbq("track", "Contact", datos);
+        if (window.ttq) ttq.track("Contact", datos);
     });
 })();
