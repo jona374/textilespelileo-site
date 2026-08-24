@@ -332,6 +332,9 @@ h1, h2, h3, h4, h5 {
 .mega__foot .lk:hover { color: var(--leather-dark); }
 
 @media (max-width: 980px) { .mega { display: none; } /* en móvil usamos el menú lateral */ }
+/* Nav con 8 items: se aprieta antes de colapsar en hamburguesa */
+@media (max-width: 1180px) { .nav__links { gap: 16px; } .nav__links a { font-size: .88rem; } }
+@media (max-width: 1060px) { .nav__links { gap: 12px; } .nav__links a { font-size: .84rem; } .nav__phone { display: none; } }
 .mobile-menu {
     position: fixed; inset: 0; z-index: 899;
     background: var(--navy-900);
@@ -1085,4 +1088,44 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
     .price-card { padding: 22px 20px; }
     .price-card__head h3 { font-size: 1.2rem; }
     .price-card__list strong { font-size: 1.35rem; }
+}
+
+/* ============================================================
+   FORMULARIO CALIFICADOR B2B (js/forms.js)
+   ============================================================ */
+.check-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+}
+.check-grid label {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 400; font-size: .9rem; margin: 0;
+    padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px;
+    background: var(--sand); cursor: pointer;
+    transition: border-color .2s var(--ease), background .2s var(--ease);
+}
+.check-grid label:hover { border-color: var(--leather); }
+.check-grid input[type="checkbox"] { width: auto; margin: 0; accent-color: var(--leather); }
+.check-grid label:has(input:checked) { background: #fff; border-color: var(--leather); font-weight: 600; }
+@media (max-width: 520px) { .check-grid { grid-template-columns: 1fr; } }
+
+.form .consent { background: var(--sand); border: 1px solid var(--line); border-radius: 8px; padding: 13px 15px; }
+.form .consent span { font-size: .86rem; line-height: 1.5; color: var(--ink); }
+.form .consent a { text-decoration: underline; }
+.form .consent input[type="checkbox"] { accent-color: var(--leather); }
+
+.field__err {
+    display: block; margin-top: 6px;
+    font-size: .82rem; font-weight: 600; color: #B42318;
+}
+.form [aria-invalid="true"] { border-color: #B42318; background: #FEF3F2; }
+
+/* Página de gracias */
+.thanks-hero { text-align: center; max-width: 640px; margin: 0 auto; }
+.thanks-hero__ico {
+    width: 86px; height: 86px; margin: 0 auto 24px;
+    display: grid; place-items: center; border-radius: 50%;
+    background: rgba(37, 211, 102, .12); color: var(--wa);
+    font-size: 2.4rem;
 }

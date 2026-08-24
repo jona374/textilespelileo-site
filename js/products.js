@@ -222,11 +222,32 @@ TP.renderProducts = function (selector, opts) {
 TP.initFilters = function () {
     var btns = document.querySelectorAll("[data-filter]");
     if (!btns.length) return;
-    btns.forEach(function (b) {
-        b.addEventListener("click", function () {
-            btns.forEach(function (x) { x.classList.remove("active"); });
-            b.classList.add("active");
-            TP.renderProducts("#product-grid", { cat: b.getAttribute("data-filter") });
+
+    function apply(cat, scroll) {
+        var target = null;
+        btns.forEach(function (x) {
+            var on = x.getAttribute("data-filter") === cat;
+            x.classList.toggle("active", on);
+            if (on) target = x;
         });
+        if (!target) return false;
+        TP.renderProducts("#product-grid", { cat: cat });
+        if (scroll) {
+            var host = document.getElementById("filters");
+            if (host) host.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        return true;
+    }
+
+    btns.forEach(function (b) {
+        b.addEventListener("click", function () { apply(b.getAttribute("data-filter"), false); });
     });
+
+    /* Enlaces de categoría tipo productos.html#pantalones */
+    function fromHash(scroll) {
+        var cat = (location.hash || "").replace("#", "");
+        if (cat) apply(cat, scroll);
+    }
+    fromHash(false);
+    window.addEventListener("hashchange", function () { fromHash(true); });
 };

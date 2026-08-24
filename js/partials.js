@@ -49,6 +49,7 @@ TP.nav = [
     { label: "Inicio", href: "index.html" },
     { label: "Productos", href: "productos.html" },
     { label: "Sectores", href: "sectores/" },
+    { label: "Al por mayor", href: "ropa-de-trabajo-al-por-mayor.html" },
     { label: "Uniformes", href: "uniformes-industriales.html" },
     { label: "Bordados", href: "bordados-corporativos.html" },
     { label: "Nosotros", href: "nosotros.html" },
@@ -83,9 +84,9 @@ TP.nav = [
 
     // Productos destacados para el mega menú (8 items)
     var megaItems = [
-        { href: "pantalon-premium-gregori.html", name: "Pantalón Premium 14oz", price: "Desde $12", img: "img/pantalon-doblado.webp" },
+        { href: "pantalon-premium-gregori.html", name: "Pantalón Premium 14oz", price: "Desde $12", img: "img/galeria/p14-1.webp" },
         { href: "pantalon-stretch.html", name: "Pantalón Stretch", price: "Desde $12", img: "img/galeria/stretch-1.webp" },
-        { href: "camisa-industrial-mistral.html", name: "Camisa Mistral", price: "Desde $12", img: "img/galeria/camisa-1.webp" },
+        { href: "camisa-industrial-mistral.html", name: "Camisa Mistral", price: "Desde $13", img: "img/galeria/camisa-1.webp" },
         { href: "chaleco-antifluidos-azul.html", name: "Chaleco Antifluidos", price: "Cotización", img: "img/galeria/chalecoazul-1.webp" },
         { href: "chaleco-gabardina-rojo.html", name: "Chaleco Gabardina Rojo", price: "Cotización", img: "img/galeria/chalecorojo-1.webp" },
         { href: "camiseta-jersey.html", name: "Camiseta Jersey", price: "Desde $6", img: "img/galeria/cjersey-1.webp" },
@@ -203,8 +204,10 @@ TP.nav = [
                     '<li><a href="' + TP.u("sectores/") + '">Sectores Industriales</a></li>' +
                     '<li><a href="' + TP.u("bordados-corporativos.html") + '">Bordados Corporativos</a></li>' +
                     '<li><a href="' + TP.u("diseno-logotipo.html") + '">Diseño de Logotipo</a></li>' +
+                    '<li><a href="' + TP.u("ropa-de-trabajo-al-por-mayor.html") + '">Venta al Por Mayor</a></li>' +
                     '<li><a href="' + TP.u("envios.html") + '">Envíos a Ecuador</a></li>' +
                     '<li><a href="' + TP.u("contacto.html") + '">Contacto</a></li>' +
+                    '<li><a href="' + TP.u("privacidad.html") + '">Política de Privacidad</a></li>' +
                 '</ul></div>' +
                 '<div><h4>Contacto</h4><ul>' +
                     '<li>📍 ' + c.location + '</li>' +

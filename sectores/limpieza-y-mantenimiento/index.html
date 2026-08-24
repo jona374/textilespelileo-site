@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-EC">
 
 <head>
     <meta charset="UTF-8">
@@ -100,7 +100,7 @@
     <section class="section bg-navy">
         <div class="container">
             <div class="section-head reveal"><span class="kicker">Presupuesto anual, no precio por prenda</span><h2>Costo por trabajador al año</h2><p>Para tu propuesta comercial: cuánto cuesta presentar un equipo impecable, por persona y por año:</p></div>
-            <div class="grid grid--3"><div class="feature reveal"><div class="feature__ico"><i class="fas fa-spray-can-sparkles"></i></div><h3>Personal de limpieza</h3><p style="font-size:1.5rem;font-weight:800;color:var(--gold);margin:6px 0">desde $48 / año</p><p>3 polos piqué bordados ($24) + 2 pantalones stretch ($24), con renovación semestral de polos.</p></div><div class="feature reveal d1"><div class="feature__ico"><i class="fas fa-screwdriver-wrench"></i></div><h3>Conserje / mantenimiento</h3><p style="font-size:1.5rem;font-weight:800;color:var(--gold);margin:6px 0">desde $56 / año</p><p>2 pantalones 14oz ($24) + 2 camisas ($24) + 1 buzo jersey ($8) para tareas de exteriores.</p></div><div class="feature reveal d2"><div class="feature__ico"><i class="fas fa-user-tie"></i></div><h3>Supervisor</h3><p style="font-size:1.5rem;font-weight:800;color:var(--gold);margin:6px 0">desde $37 / año</p><p>2 polos bordados ($16) + 1 buzo polo ($9) + 1 pantalón stretch ($12).</p></div></div>
+            <div class="grid grid--3"><div class="feature reveal"><div class="feature__ico"><i class="fas fa-spray-can-sparkles"></i></div><h3>Personal de limpieza</h3><p style="font-size:1.5rem;font-weight:800;color:var(--gold);margin:6px 0">desde $48 / año</p><p>3 polos piqué bordados ($24) + 2 pantalones stretch ($24), con renovación semestral de polos.</p></div><div class="feature reveal d1"><div class="feature__ico"><i class="fas fa-screwdriver-wrench"></i></div><h3>Conserje / mantenimiento</h3><p style="font-size:1.5rem;font-weight:800;color:var(--gold);margin:6px 0">desde $58 / año</p><p>2 pantalones 14oz ($24) + 2 camisas ($26) + 1 buzo jersey ($8) para tareas de exteriores.</p></div><div class="feature reveal d2"><div class="feature__ico"><i class="fas fa-user-tie"></i></div><h3>Supervisor</h3><p style="font-size:1.5rem;font-weight:800;color:var(--gold);margin:6px 0">desde $37 / año</p><p>2 polos bordados ($16) + 1 buzo polo ($9) + 1 pantalón stretch ($12).</p></div></div>
             <p class="note text-center" style="color:#95A2B3">Valores referenciales con precios por mayor vigentes, sin bordado ni envío. El precio final se confirma en la cotización según tallas, colores y cantidad.</p>
         </div>
     </section>
@@ -181,6 +181,12 @@
                             </select>
                         </div>
                         <div class="field"><label for="f-mensaje">Detalle adicional</label><textarea id="f-mensaje" placeholder="Tallas especiales, colores, fechas límite, requisitos internos…"></textarea></div>
+                        <div class="field consent">
+                            <label style="display:flex;gap:10px;align-items:flex-start;font-weight:400">
+                                <input type="checkbox" id="f-consent" style="width:auto;margin-top:3px">
+                                <span>Autorizo a Textiles Pelileo a usar mis datos para responder esta solicitud. He leído la <a href="../../privacidad.html">política de privacidad</a>. *</span>
+                            </label>
+                        </div>
                         <button type="submit" class="btn btn--wa btn--block btn--lg"><i class="fab fa-whatsapp"></i> Enviar por WhatsApp</button>
                         <p class="note text-center">Al enviar se abrirá WhatsApp con tu solicitud lista para confirmar.</p>
                     </form>
@@ -198,6 +204,7 @@
 
     <script src="../../js/partials.js?v=1782105560"></script>
     <script src="../../js/products.js?v=1782105560"></script>
+    <script src="../../js/forms.js?v=1782105560"></script>
     <script src="../../js/main.js?v=1782105560"></script>
     <script>
         TP.renderProducts("#related-grid", { only: ["camiseta-polo-pique.html", "pantalon-stretch.html", "bordados-corporativos.html"] });
@@ -206,6 +213,8 @@
         if (sf) sf.addEventListener("submit", function (e) {
             e.preventDefault();
             var v = function (id) { var el = document.getElementById(id); return el ? (el.value || "").trim() : ""; };
+            var consent = document.getElementById("f-consent");
+            if (consent && !consent.checked) { consent.focus(); consent.setAttribute("aria-invalid", "true"); return; }
             var msg = "Hola Textiles Pelileo, necesito dotación para el sector limpieza y mantenimiento:\n" +
                 "• Empresa: " + v("f-empresa") + "\n" +
                 (v("f-trabajadores") ? "• Trabajadores por rol: " + v("f-trabajadores") + "\n" : "") +
@@ -214,9 +223,9 @@
                 (v("f-frecuencia") ? "• Frecuencia de reposición: " + v("f-frecuencia") + "\n" : "") +
                 (v("f-mensaje") ? "• Detalle: " + v("f-mensaje") + "\n" : "") +
                 "¿Me ayudan con una cotización?";
-            if (window.fbq) fbq("track", "Lead");
-            if (window.ttq) ttq.track("SubmitForm");
-            window.open(TP.wa(msg), "_blank");
+            TP.track("generate_lead", { form_id: "sectorForm", sector: "limpieza y mantenimiento" });
+            window.open(TP.wa(msg), "_blank", "noopener");
+            setTimeout(function () { location.href = "../../gracias.html"; }, 400);
         });
     </script>
 </body>

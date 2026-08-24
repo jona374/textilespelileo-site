@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-EC">
 
 <head>
     <meta charset="UTF-8">
@@ -181,6 +181,12 @@
                             </select>
                         </div>
                         <div class="field"><label for="f-mensaje">Detalle adicional</label><textarea id="f-mensaje" placeholder="Tallas especiales, colores, fechas límite, requisitos internos…"></textarea></div>
+                        <div class="field consent">
+                            <label style="display:flex;gap:10px;align-items:flex-start;font-weight:400">
+                                <input type="checkbox" id="f-consent" style="width:auto;margin-top:3px">
+                                <span>Autorizo a Textiles Pelileo a usar mis datos para responder esta solicitud. He leído la <a href="../../privacidad.html">política de privacidad</a>. *</span>
+                            </label>
+                        </div>
                         <button type="submit" class="btn btn--wa btn--block btn--lg"><i class="fab fa-whatsapp"></i> Enviar por WhatsApp</button>
                         <p class="note text-center">Al enviar se abrirá WhatsApp con tu solicitud lista para confirmar.</p>
                     </form>
@@ -198,6 +204,7 @@
 
     <script src="../../js/partials.js?v=1782105560"></script>
     <script src="../../js/products.js?v=1782105560"></script>
+    <script src="../../js/forms.js?v=1782105560"></script>
     <script src="../../js/main.js?v=1782105560"></script>
     <script>
         TP.renderProducts("#related-grid", { only: ["camiseta-jersey.html", "buzo-capucha.html", "pantalon-economico-empresarial.html"] });
@@ -206,6 +213,8 @@
         if (sf) sf.addEventListener("submit", function (e) {
             e.preventDefault();
             var v = function (id) { var el = document.getElementById(id); return el ? (el.value || "").trim() : ""; };
+            var consent = document.getElementById("f-consent");
+            if (consent && !consent.checked) { consent.focus(); consent.setAttribute("aria-invalid", "true"); return; }
             var msg = "Hola Textiles Pelileo, necesito dotación para el sector agroindustria y floricultura:\n" +
                 "• Empresa: " + v("f-empresa") + "\n" +
                 (v("f-trabajadores") ? "• Trabajadores por rol: " + v("f-trabajadores") + "\n" : "") +
@@ -214,9 +223,9 @@
                 (v("f-frecuencia") ? "• Frecuencia de reposición: " + v("f-frecuencia") + "\n" : "") +
                 (v("f-mensaje") ? "• Detalle: " + v("f-mensaje") + "\n" : "") +
                 "¿Me ayudan con una cotización?";
-            if (window.fbq) fbq("track", "Lead");
-            if (window.ttq) ttq.track("SubmitForm");
-            window.open(TP.wa(msg), "_blank");
+            TP.track("generate_lead", { form_id: "sectorForm", sector: "agroindustria y floricultura" });
+            window.open(TP.wa(msg), "_blank", "noopener");
+            setTimeout(function () { location.href = "../../gracias.html"; }, 400);
         });
     </script>
 </body>
