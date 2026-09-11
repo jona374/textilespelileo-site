@@ -121,7 +121,7 @@
     </script>
 </head>
 
-<body data-wa-msg="Hola, necesito Calzado de Seguridad junto con la ropa de trabajo. ¿Me ayudan con modelos, tallas y precio?">
+<body data-wa-off>
 
     <!-- HERO -->
     <section class="phero section--tight">
@@ -136,7 +136,7 @@
                         <span class="tag">Bajo pedido</span><span class="tag">Con proveedor aliado</span><span class="tag">Una sola cotización</span><span class="tag">Sin inventario inflado</span>
                     </div>
                     <div class="hero__actions">
-                        <a class="btn btn--wa btn--lg" href="#" data-wa target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Consultar calzado</a>
+                        <a class="btn btn--leather btn--lg" href="productos.html">Ver el catálogo disponible</a>
                         <a class="btn btn--ghost-light" href="#como">Cómo funciona</a>
                     </div>
                 </div>
@@ -149,8 +149,8 @@
     <section class="section bg-white" id="como">
         <div class="container">
             <div class="section-head reveal">
-                <span class="kicker">Cómo funciona</span>
-                <h2>Ropa de trabajo y calzado de seguridad, en un solo pedido</h2>
+                <span class="kicker">Cómo va a funcionar</span>
+                <h2>La idea: ropa de trabajo y calzado en un solo pedido</h2>
                 <p>Trabajamos esta línea de forma transparente: nosotros hacemos la ropa, un aliado provee el calzado, tú cotizas una sola vez.</p>
             </div>
             <div class="steps">
@@ -202,14 +202,14 @@
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- LÍNEA EN PREPARACIÓN -->
     <section class="section bg-white">
         <div class="container">
             <div class="cta-block reveal">
-                <span class="kicker" style="justify-content:center">Cotización inmediata</span>
-                <h2>Consulta calzado al WhatsApp +593 98 663 4114</h2>
-                <p>Cuéntanos cuántos pares necesitas y para qué trabajo. Consultamos con nuestro proveedor y te cotizamos junto con la ropa.</p>
-                <a class="btn btn--wa btn--lg" href="#" data-wa target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Escríbenos ahora</a>
+                <span class="kicker" style="justify-content:center">Línea en preparación</span>
+                <h2>Todavía no ofrecemos calzado de seguridad</h2>
+                <p>Estamos evaluando con qué proveedor trabajar esta línea. Mientras tanto no la vendemos, para no comprometer una entrega que no podemos garantizar.</p>
+                <a class="btn btn--ghost-light btn--lg" href="productos.html">Ver el catálogo disponible</a>
             </div>
         </div>
     </section>
@@ -227,7 +227,6 @@
     <script src="js/main.js?v=1782105560"></script>
     <script>
         TP.renderProducts("#related-grid", { only: ["kit-de-ropa-de-trabajo.html", "pantalon-premium-gregori.html", "camisa-industrial-mistral.html"] });
-        document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = TP.wa(document.body.getAttribute("data-wa-msg")); });
     </script>
 </body>
 

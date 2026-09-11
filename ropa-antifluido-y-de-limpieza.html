@@ -141,7 +141,7 @@
     </script>
 </head>
 
-<body data-wa-msg="Hola, me interesa la línea Antifluido y de Limpieza (mandil, filipina, pantalón). ¿Me ayudan con colores, tallas y precios?">
+<body data-wa-off>
 
     <!-- HERO -->
     <section class="phero section--tight">
@@ -152,11 +152,12 @@
                     <span class="kicker">Alimentos · limpieza · salud</span>
                     <h1>Ropa antifluido y de limpieza</h1>
                     <p class="phero__lead">Mandil, filipina, chaleco y pantalón en tela antifluidos que repele líquidos. Para cocinas, plantas de alimentos, personal de limpieza, hotelería y áreas clínicas, donde la ropa se ensucia todos los días y se repone seguido.</p>
+                    <p class="stock order mb-2"><span class="dot"></span> Chaleco disponible · mandil, filipina y pantalón en preparación</p>
                     <div class="tag-row mb-2">
                         <span class="tag">Tela antifluidos</span><span class="tag">Blanco o a color</span><span class="tag">Bordado de logo</span><span class="tag">Fácil de lavar</span>
                     </div>
                     <div class="hero__actions">
-                        <a class="btn btn--wa btn--lg" href="#" data-wa target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotizar línea antifluido</a>
+                        <a class="btn btn--leather btn--lg" href="chaleco-antifluidos-azul.html">Ver el chaleco disponible</a>
                         <a class="btn btn--ghost-light" href="#prendas">Ver prendas</a>
                     </div>
                 </div>
@@ -171,7 +172,7 @@
             <div class="section-head reveal">
                 <span class="kicker">Prendas de la línea</span>
                 <h2>De lo que ya tenemos a la dotación completa</h2>
-                <p>El chaleco antifluidos ya es parte de nuestro catálogo. Estas son las prendas que completan la línea, fabricadas bajo pedido.</p>
+                <p>El chaleco antifluidos ya es parte de nuestro catálogo y se puede pedir hoy. Las otras tres prendas están en preparación y todavía no se venden.</p>
             </div>
             <div class="grid grid--3" id="af-grid"></div>
             <div class="grid grid--3 mt-3">
@@ -181,7 +182,7 @@
                         <h3>Mandil antifluido</h3>
                         <div class="card__meta">Blanco o a color · con o sin peto</div>
                         <p>Para cocina, limpieza y manipulación de alimentos. Con tirantes o cuello ajustable y amarre en cintura.</p>
-                        <div class="card__price">Cotización <small>según modelo y cantidad</small></div>
+                        <div class="card__price">Próximamente <small>todavía no está a la venta</small></div>
                     </div>
                 </article>
                 <article class="card reveal d1">
@@ -190,7 +191,7 @@
                         <h3>Filipina de cocina</h3>
                         <div class="card__meta">Manga corta o larga · blanco o color</div>
                         <p>Chaqueta de cocina con botonadura frontal, en tela antifluidos. Admite logo bordado y nombre de la persona.</p>
-                        <div class="card__price">Cotización <small>según modelo y cantidad</small></div>
+                        <div class="card__price">Próximamente <small>todavía no está a la venta</small></div>
                     </div>
                 </article>
                 <article class="card reveal d2">
@@ -199,7 +200,7 @@
                         <h3>Pantalón antifluido</h3>
                         <div class="card__meta">Con elástico o pretina · tallas S–XXL</div>
                         <p>Pantalón cómodo para cocina, limpieza y áreas clínicas. Combina con la filipina o con camiseta de la empresa.</p>
-                        <div class="card__price">Cotización <small>según modelo y cantidad</small></div>
+                        <div class="card__price">Próximamente <small>todavía no está a la venta</small></div>
                     </div>
                 </article>
             </div>
@@ -257,14 +258,14 @@
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- LÍNEA EN PREPARACIÓN -->
     <section class="section bg-white">
         <div class="container">
             <div class="cta-block reveal">
-                <span class="kicker" style="justify-content:center">Cotización inmediata</span>
-                <h2>Cotiza tu dotación antifluido al WhatsApp +593 98 663 4114</h2>
-                <p>Dinos qué prendas necesitas, en qué color y para cuántas personas. Te cotizamos el mismo día y te declaramos el plazo.</p>
-                <a class="btn btn--wa btn--lg" href="#" data-wa target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Escríbenos ahora</a>
+                <span class="kicker" style="justify-content:center">Línea en preparación</span>
+                <h2>Por ahora solo vendemos el chaleco antifluidos</h2>
+                <p>El mandil, la filipina y el pantalón antifluido están en desarrollo en el taller. Cuando estén listos publicaremos aquí sus fotos, tallas y precios.</p>
+                <a class="btn btn--ghost-light btn--lg" href="chaleco-antifluidos-azul.html">Ver el chaleco antifluidos</a>
             </div>
         </div>
     </section>
@@ -283,7 +284,6 @@
     <script>
         TP.renderProducts("#related-grid", { only: ["chaleco-antifluidos-azul.html", "camiseta-polo-pique.html", "bordados-corporativos.html"] });
         TP.renderProducts("#af-grid", { only: ["chaleco-antifluidos-azul.html"] });
-        document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = TP.wa(document.body.getAttribute("data-wa-msg")); });
     </script>
 </body>
 

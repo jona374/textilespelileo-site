@@ -49,6 +49,10 @@ TP.nav = [
     var c = TP.config;
     var current = (location.pathname.split("/").pop() || "index.html") || "index.html";
     var pageMsg = (document.body.getAttribute("data-wa-msg")) || c.defaultMsg;
+    /* Páginas de líneas aún no disponibles: se marcan con data-wa-off en el <body>
+       y no muestran ningún botón de WhatsApp, para no generar consultas de algo
+       que todavía no se vende. */
+    var waOff = document.body.hasAttribute("data-wa-off");
 
     /* ---------- PRELOADER (oculto al cargar imágenes/fuentes) ---------- */
     var pre = document.createElement("div");
@@ -95,7 +99,7 @@ TP.nav = [
             '<div class="mega__grid">' + grid + '</div>' +
             '<div class="mega__foot">' +
                 '<a class="lk" href="productos.html">→ Ver todo el catálogo</a>' +
-                '<a class="btn btn--wa" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotizar</a>' +
+                (waOff ? '' : '<a class="btn btn--wa" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotizar</a>') +
             '</div>' +
         '</div>';
     }
@@ -131,7 +135,7 @@ TP.nav = [
             '<span class="topbar__tag"><span class="flag">🇪🇨</span> Hecho en Ecuador <span class="sep">·</span> Desde 2010</span>' +
             '<span class="topbar__right">' +
                 '<a href="tel:+' + c.phoneIntl + '"><i class="fas fa-phone"></i> ' + c.phoneDisplay + '</a>' +
-                '<a class="wa" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotiza ahora</a>' +
+                (waOff ? '' : '<a class="wa" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotiza ahora</a>') +
             '</span>' +
         '</div>';
 
@@ -144,7 +148,7 @@ TP.nav = [
             '<nav class="nav__links" aria-label="Principal">' + navLinks + '</nav>' +
             '<div class="nav__cta">' +
                 '<a class="nav__phone" href="tel:+' + c.phoneIntl + '">📞 ' + c.phoneDisplay + '</a>' +
-                '<a class="btn btn--wa" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener">Cotizar</a>' +
+                (waOff ? '<a class="btn btn--outline" href="productos.html">Ver catálogo</a>' : '<a class="btn btn--wa" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener">Cotizar</a>') +
                 '<button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>' +
             '</div>' +
         '</div>';
@@ -155,7 +159,7 @@ TP.nav = [
     mm.id = "mobileMenu";
     mm.innerHTML =
         TP.nav.map(function (n) { return '<a href="' + n.href + '">' + n.label + '</a>'; }).join("") +
-        '<a class="btn btn--wa btn--block" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener">Escríbenos al WhatsApp</a>' +
+        (waOff ? '' : '<a class="btn btn--wa btn--block" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener">Escríbenos al WhatsApp</a>') +
         '<div class="mobile-menu__contact">📍 ' + c.location + '<br>📞 ' + c.phoneDisplay + '</div>';
 
     document.body.insertBefore(mm, document.body.firstChild);
@@ -209,7 +213,7 @@ TP.nav = [
                     '<li>📞 <a href="tel:+' + c.phoneIntl + '">' + c.phoneDisplay + '</a></li>' +
                     '<li>✉️ <a href="mailto:' + c.email + '">' + c.email + '</a></li>' +
                     '<li>🚚 Envíos Servientrega · todo Ecuador</li>' +
-                    '<li><a class="btn btn--wa mt-1" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener">Escríbenos al WhatsApp</a></li>' +
+                    (waOff ? '' : '<li><a class="btn btn--wa mt-1" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener">Escríbenos al WhatsApp</a></li>') +
                 '</ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
@@ -228,13 +232,13 @@ TP.nav = [
             '<span class="ti"><i class="fas fa-award"></i> Telas Gregori & Mistral</span>' +
             '<span class="ti"><i class="fas fa-truck-fast"></i> Envíos a todo Ecuador (1–3 días)</span>' +
             '<span class="ti"><i class="fas fa-shield-halved"></i> Envío asegurado</span>' +
-            '<span class="ti"><i class="fab fa-whatsapp"></i> Cotización inmediata</span>' +
+            (waOff ? '' : '<span class="ti"><i class="fab fa-whatsapp"></i> Cotización inmediata</span>') +
         '</div>';
     document.body.appendChild(trust);
     document.body.appendChild(footer);
 
     /* ---------- GANCHO DE URGENCIA en heroes de producto ---------- */
-    var pheroActions = document.querySelector(".phero .hero__actions");
+    var pheroActions = waOff ? null : document.querySelector(".phero .hero__actions");
     if (pheroActions && !pheroActions.parentNode.querySelector(".urgency")) {
         var urg = document.createElement("p");
         urg.className = "urgency";
@@ -243,7 +247,8 @@ TP.nav = [
         pheroActions.parentNode.insertBefore(urg, pheroActions);
     }
 
-    /* ---------- FLOATING WHATSAPP ---------- */
+    /* ---------- FLOATING WHATSAPP + BARRA MÓVIL (no en páginas data-wa-off) ---------- */
+    if (!waOff) {
     var waFloat = document.createElement("a");
     waFloat.className = "wa-float";
     waFloat.href = TP.wa(pageMsg);
@@ -260,4 +265,5 @@ TP.nav = [
         '<a class="btn btn--call" href="tel:+' + c.phoneIntl + '">📞 Llamar</a>' +
         '<a class="btn btn--wa" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener">' + waSvg + ' WhatsApp</a>';
     document.body.appendChild(sticky);
+    }
 })();
