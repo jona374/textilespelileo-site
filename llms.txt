@@ -45,7 +45,9 @@ Precio por cantidad: desde 12 unidades (una docena) es el precio por mayor; en p
 - Buzo Tela Jersey: $8 por mayor / $10 por unidad
 - Buzo Jersey con Capucha: $9 por mayor / $11 por unidad
 - Buzo Polo Piqué: $9 por mayor / $11 por unidad
-Adicionales que se suman a cualquiera de esos precios: tallas extras +$1 · cinta reflectiva +$1.
+Adicionales que se suman a cualquiera de esos precios:
+- Tallas extras +$1. En tela jersey la talla extra empieza en la 42 (las 36, 38 y 40 van al precio de tabla). En tela polo piqué empieza en la XL (S, M y L van al precio de tabla).
+- Cinta reflectiva +$1 en cualquier prenda de esta línea.
 Modelo personalizado: mínimo 100 prendas.
 
 UNIFORME COMPLETO DE TRABAJO: camisa Mistral 7.5oz con reflectivo AAA + pantalón Gregori 14oz, con opción de bordado de logotipo. Ideal para dotación de empresas.
