@@ -23,7 +23,7 @@ TP.config = {
     social: {
         facebook: "https://www.facebook.com/profile.php?id=61580434762683",
         instagram: "https://www.instagram.com/textilespelileo",
-        tiktok: "https://www.tiktok.com/@textiles_pelileo"
+        tiktok: "https://www.tiktok.com/@ropadetrabajo.ec"
     },
     // Mensaje WhatsApp por defecto (se puede sobreescribir por página con data-wa-msg)
     defaultMsg: "Hola, me interesa la ropa de trabajo de Textiles Pelileo. ¿Me ayudan con disponibilidad, tallas y cotización?"
