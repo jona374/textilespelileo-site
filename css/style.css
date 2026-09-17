@@ -794,8 +794,10 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
    FOOTER  (inyectado por partials.js)
    ============================================================ */
 .site-footer { background: var(--navy-900); color: #B9C4D2; padding: 60px 0 26px; }
-.site-footer a { color: #B9C4D2; transition: var(--t); }
-.site-footer a:hover { color: var(--gold); }
+/* Los botones del pie conservan su propio color: sin :not(.btn) esta regla
+   le gana al blanco de .btn--wa y el texto queda ilegible sobre el verde. */
+.site-footer a:not(.btn) { color: #B9C4D2; transition: var(--t); }
+.site-footer a:not(.btn):hover { color: var(--gold); }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.1fr; gap: 34px; margin-bottom: 44px; }
 .footer-grid h4 { color: #fff; font-size: 1rem; margin-bottom: 18px; letter-spacing: .02em; }
 .footer-grid li { margin-bottom: 11px; font-size: .92rem; }
