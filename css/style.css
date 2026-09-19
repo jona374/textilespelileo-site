@@ -790,6 +790,25 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
 .form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--leather); background: #fff; box-shadow: 0 0 0 3px rgba(139,94,60,.12); }
 .form textarea { min-height: 120px; resize: vertical; }
 
+/* Casillas: sin esto heredarían el width:100% de los campos de texto
+   y cada casilla ocuparía toda la fila. */
+.form .check-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; }
+.form .check-grid label,
+.form .consent label {
+    display: flex; align-items: flex-start; gap: 9px;
+    font-weight: 400; font-size: .92rem; color: var(--ink); margin: 0; cursor: pointer;
+}
+.form .check-grid input[type="checkbox"],
+.form .consent input[type="checkbox"] {
+    width: 18px; height: 18px; flex: 0 0 18px; margin-top: 1px; padding: 0;
+    accent-color: var(--leather); cursor: pointer;
+}
+.form .consent { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px 16px; }
+.form .consent a { color: var(--leather); text-decoration: underline; }
+@media (max-width: 560px) {
+    .form .check-grid { grid-template-columns: 1fr; }
+}
+
 /* ============================================================
    FOOTER  (inyectado por partials.js)
    ============================================================ */

@@ -202,6 +202,7 @@ TP.nav = [
                     '<li><a href="ropa-ignifuga.html">Ropa ignífuga</a></li>' +
                 '</ul></div>' +
                 '<div><h4>Empresa</h4><ul>' +
+                    '<li><a href="ropa-de-trabajo-al-por-mayor.html">Ropa de trabajo al por mayor</a></li>' +
                     '<li><a href="nosotros.html">Sobre Nosotros</a></li>' +
                     '<li><a href="bordados-corporativos.html">Bordados Corporativos</a></li>' +
                     '<li><a href="diseno-logotipo.html">Diseño de Logotipo</a></li>' +
@@ -218,6 +219,7 @@ TP.nav = [
             '</div>' +
             '<div class="footer-bottom">' +
                 '<span>© ' + year + ' Textiles Pelileo · Duradero por Naturaleza · Todos los derechos reservados.</span>' +
+                '<span><a href="politica-de-privacidad.html">Política de privacidad</a></span>' +
                 '<span class="made-badge">🇪🇨 Ecuadorian Made. Built to Work.</span>' +
             '</div>' +
         '</div>';
